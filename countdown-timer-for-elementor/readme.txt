@@ -2,9 +2,9 @@
 Contributors: flickdevs, shaikhaezaz80
 Tags: elementor countdown addon, countdown module, elementor, elementor addon, timer module, countdown module, elementor countdown timer widget, create one time offer funnel, OTO 
 Requires at least: 5.9
-Tested up to: 6.4.2
+Tested up to: 6.7.1
 Requires PHP: 7.0
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,11 @@ There is an option available under 'Countdown Expire' where you can show message
 3. Multiple Countdown Timers
 
 == Changelog ==
+
+= 1.3.7 =
+* Compatibility with latest Elementor plugin and Fixed fatal error
+* Compatibility with latest WordPress
+* Minor fixes
 
 = 1.3.6 =
 * Minor fixes

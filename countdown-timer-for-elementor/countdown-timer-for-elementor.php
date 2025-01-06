@@ -4,8 +4,8 @@
  * Description: Showcase a countdown timer for your next upcoming event or offers with elementor page builder.
  * Plugin URI: https://flickdevs.com/elementor/
  * Author: FlickDevs
- * Version: 1.3.6
- * Elementor tested up to: 3.19.0
+ * Version: 1.3.7
+ * Elementor tested up to: 3.26.3
  * Author URI: https://flickdevs.com
  *
  * Text Domain: countdown-timer-for-elementor
@@ -83,8 +83,8 @@ function countdown_timer_widget_fail_load() {
         }
         $activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin);
 
-        $message = '<p>' . __('<strong>Countdown Timer<strong> widgets not working because you need to activate the Elementor plugin.', CTW_DOMAIN) . '</p>';
-        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, __('Activate Elementor Now', CTW_DOMAIN)) . '</p>';
+        $message = '<p>' . __('<strong>Countdown Timer<strong> widgets not working because you need to activate the Elementor plugin.', 'countdown-timer-for-elementor') . '</p>';
+        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, __('Activate Elementor Now', 'countdown-timer-for-elementor')) . '</p>';
     } else {
         if (!current_user_can('install_plugins')) {
             return;
@@ -92,11 +92,11 @@ function countdown_timer_widget_fail_load() {
 
         $install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=elementor'), 'install-plugin_elementor');
 
-        $message = '<p>' . __('<strong>Countdown Timer</strong> widgets not working because you need to install the Elemenor plugin', CTW_DOMAIN) . '</p>';
-        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install Elementor Now', CTW_DOMAIN)) . '</p>';
+        $message = '<p>' . __('<strong>Countdown Timer</strong> widgets not working because you need to install the Elemenor plugin', 'countdown-timer-for-elementor') . '</p>';
+        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install Elementor Now', 'countdown-timer-for-elementor')) . '</p>';
     }
 
-    echo '<div class="error"><p>' . $message . '</p></div>';
+    echo '<div class="error"><p>' . esc_html($message) . '</p></div>';
 }
 
 /**
@@ -110,9 +110,9 @@ function countdown_timer_elementor_update_notice() {
     $file_path = 'elementor/elementor.php';
 
     $upgrade_link = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=') . $file_path, 'upgrade-plugin_' . $file_path);
-    $message = '<p>' . __('<strong>Countdown Timer</strong> widgets not working because you are using an old version of Elementor.', CTW_DOMAIN) . '</p>';
-    $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, __('Update Elementor Now', CTW_DOMAIN)) . '</p>';
-    echo '<div class="error">' . $message . '</div>';
+    $message = '<p>' . __('<strong>Countdown Timer</strong> widgets not working because you are using an old version of Elementor.', 'countdown-timer-for-elementor') . '</p>';
+    $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, __('Update Elementor Now', 'countdown-timer-for-elementor')) . '</p>';
+    echo '<div class="error">' . esc_html($message) . '</div>';
 }
 
 if (!function_exists('_is_elementor_installed')) {
@@ -144,7 +144,7 @@ add_action('admin_notices', 'countdown_timer_reviews_notices');
 function countdown_timer_reviews_notices() {
     if ($notices = get_option('countdown_timer_reviews')) {
         foreach ($notices as $notice) {
-            echo "<div class='notice notice-success is-dismissible'><p>$notice</p></div>";
+            echo "<div class='notice notice-success is-dismissible'><p>" . esc_html( $notice ) . "</p></div>";
         }
         delete_option('countdown_timer_reviews');
     }
