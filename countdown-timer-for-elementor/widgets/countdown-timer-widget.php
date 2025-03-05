@@ -36,7 +36,8 @@ class Countdown_Timer_Elementor_Widget extends Widget_Base {
 			[
 				'label' => __( 'Due Date', 'countdown-timer-for-elementor' ),
 				'type' => Controls_Manager::DATE_TIME,
-				'default' => date( 'Y-m-d H:i', strtotime( '+1 month' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ),
+				//'default' => date( 'Y-m-d H:i', strtotime( '+1 month' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ),
+				'default' => date( 'Y-m-d 12:00', strtotime( '+1 month' ) + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ),
 				'description' => sprintf( __( 'Date set according to your timezone: %s.', 'countdown-timer-for-elementor' ), Utils::get_timezone_string() ),
 			]
 		);
