@@ -4,8 +4,8 @@
  * Description: Showcase a countdown timer for your next upcoming event or offers with elementor page builder.
  * Plugin URI: https://flickdevs.com/elementor/
  * Author: FlickDevs
- * Version: 1.3.8
- * Elementor tested up to: 3.27.6
+ * Version: 1.3.9
+ * Elementor tested up to: 3.29.2
  * Author URI: https://flickdevs.com
  *
  * Text Domain: countdown-timer-for-elementor
